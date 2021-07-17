@@ -1,9 +1,14 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        s = s.replace(' ','')
-        t = t.replace(' ','')
+        s = s.replace(' ','').lower()
+        t = t.replace(' ','').lower()
+
+        # Edge Case Check
+        if len(s) != len(t):
+            return False
         
         count = {}
+
         for letter in s:
             if letter in count:
                 count[letter] += 1
