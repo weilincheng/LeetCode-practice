@@ -1,5 +1,5 @@
 class Solution:
-    # O(n^2) time | O(n^2) space - where n is the number of the boxes in Sudoku board
+    # O(n^2) time | O(n^2) space - where n is the length of the Sudoku board
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         N = 9
         rows = [set() for _ in range(N)]
