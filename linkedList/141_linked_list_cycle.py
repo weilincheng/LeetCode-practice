@@ -12,3 +12,15 @@ class Solution:
                 seenNode[currentNode] = True
             currentNode = currentNode.next
         return False
+
+    # Use fast pointer to see if it can reach to a null and return False
+    # Use slow pointer to see if it will be caught by the fast pointer 
+    def hasCycle2(self, head: ListNode) -> bool:
+        slow, fast = head, head
+        while fast != None and fast.next != None:
+            fast = fast.next.next
+            slow = slow.next
+            if fast == slow:
+                return True
+        return False
+        
