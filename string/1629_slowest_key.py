@@ -7,8 +7,7 @@ class Solution:
             if pressTime > maxDuration:
                 maxDuration = pressTime
                 slowestKey = keysPressed[i]
-            elif pressTime == maxDuration:
-                if keysPressed[i] > slowestKey:
-                    slowestKey = keysPressed[i]
+            elif pressTime == maxDuration and keysPressed[i] > slowestKey:
+                slowestKey = keysPressed[i]
             startTime = releaseTimes[i]
         return slowestKey
