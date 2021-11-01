@@ -1,5 +1,5 @@
 class Solution:
-    # O(m * n) time | O(m * n) space - where n is the number of 'O' in board
+    # O(m * n) time | O(m * n) space
     def solve(self, board: List[List[str]]) -> None:
         rows, cols = len(board), len(board[0])
 
