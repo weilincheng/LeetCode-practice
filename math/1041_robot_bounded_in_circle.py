@@ -10,6 +10,9 @@ class Solution:
                 dirX, dirY = -1 * dirY, dirX
             else:
                 dirX, dirY = dirY, -1 * dirX
-        
+        """
+        As long as the direction changes, it comes back to origin after at most three more iterations
+        Prove: [dx, dy] + [dy, -dx] + [-dx, -dy] + [-dy, dx] = [0, 0] 
+        """
         return (x, y) == (0, 0) or (dirX, dirY) != (0, 1)
     
