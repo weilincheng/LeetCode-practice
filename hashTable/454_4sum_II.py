@@ -9,8 +9,7 @@ class Solution:
         result = 0
         for num3, num4 in product(nums3, nums4):
             currSum = num3 + num4
-            if -currSum in seenNum:
-                result += seenNum[-currSum]
+            result += seenNum.get(-currSum, 0)
         
         return result 
     
