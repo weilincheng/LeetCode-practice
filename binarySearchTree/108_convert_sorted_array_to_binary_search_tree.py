@@ -1,7 +1,7 @@
 class Solution:
     # O(n) time | O(n) space - where n is the length of the array 
     def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
-        def constructBST(nums, bst, startIdx, endIdx):
+        def constructBST(bst, startIdx, endIdx):
             if startIdx > endIdx: 
                 return None
             
@@ -17,9 +17,9 @@ class Solution:
                     bst.right = TreeNode(nums[midIdx])
                     bst = bst.right
             
-            constructBST(nums, bst, startIdx, midIdx - 1)
-            constructBST(nums, bst, midIdx + 1, endIdx)
+            constructBST(bst, startIdx, midIdx - 1)
+            constructBST(bst, midIdx + 1, endIdx)
             
             return bst
         
-        return constructBST(nums, None, 0, len(nums) - 1)
+        return constructBST(None, 0, len(nums) - 1)
