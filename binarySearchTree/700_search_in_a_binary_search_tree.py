@@ -17,3 +17,17 @@ class Solution:
         else:
             return self.searchBST(root.left, val)
         return self.searchBST(root, val)
+
+class Solution2:
+    # O(log(n)) time | O(1) space - where n is the number of nodes 
+    def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        while root:
+            if root.val == val:
+                return root
+            elif root.val < val:
+                root = root.right
+            else:
+                root = root.left
+        
+        return None
+        
