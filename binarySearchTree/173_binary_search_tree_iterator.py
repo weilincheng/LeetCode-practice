@@ -1,21 +1,21 @@
 class BSTIterator:
-    # O(n) time | O(n) space - where n is the number of nodes
+    # O(h) time | O(h) space - where h is the height of the left subtree
     def __init__(self, root: Optional[TreeNode]):
-        stack, node = [], root
-        self.Nodes = []
-        while stack or node:
-            while node:
-                stack.append(node)
-                node = node.right
+        self.stack = []
+        while root:
+            self.stack.append(root)
+            root = root.left
             
-            node = stack.pop()
-            self.Nodes.append(node)
-            node = node.left
-    # O(1) time | O(1) space 
+    # O(1) time in average
     def next(self) -> int:
-        return self.Nodes.pop().val
-        
-    # O(1) time | O(1) space 
+        res = self.stack.pop()
+        cur = res.right
+        while cur:
+            self.stack.append(cur)
+            cur = cur.left
+        return res.val
+
+    # O(1) time
     def hasNext(self) -> bool:
-        return len(self.Nodes) >= 1
+        return len(self.stack) >= 1
         
