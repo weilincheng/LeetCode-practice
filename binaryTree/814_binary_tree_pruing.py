@@ -1,0 +1,10 @@
+class Solution:
+    # O(n) time | O(n) space - where n is the number of tree nodes
+    def pruneTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if not root:
+            return None
+        root.left = self.pruneTree(root.left)
+        root.right = self.pruneTree(root.right)
+        
+        return None if root.val == 0 and not root.left and not root.right else root
+    
