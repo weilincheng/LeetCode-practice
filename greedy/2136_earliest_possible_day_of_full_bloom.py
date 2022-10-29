@@ -1,10 +1,11 @@
 class Solution:
-    # O(nlogn) time | O(n) space - where n is the length of the array
+    # O(nlog(n)) time | O(n) space - where n is the length of the input array
     def earliestFullBloom(self, plantTime: List[int], growTime: List[int]) -> int:
-        currTime, bloomTime = 0, []
-        sortedTime = sorted([[growTime[i], plantTime[i]] for i in range(len(plantTime))], reverse=True)
-        print(sortedTime)
-        for [g, p] in sortedTime:
-            bloomTime.append(currTime + g + p)
-            currTime += p
-        return max(bloomTime)
+        curPlantTime, res = 0, 0
+        indices = sorted(range(len(plantTime)), key=lambda x: -growTime[x])
+        for i in indices:
+            curPlantTime += plantTime[i]
+            res = max(res, curPlantTime + growTime[i])
+        
+        return res
+
