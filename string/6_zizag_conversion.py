@@ -9,7 +9,7 @@ class Solution:
             middleNext = (numRows - 1 - i) * 2
             for j in range(i, len(s), increment):
                 res.append(s[j])
-                if i > 0 and i < numRows - 1 and j + middleNext <= len(s) - 1:
+                if i > 0 and i < numRows - 1 and j + middleNext < len(s):
                     res.append(s[j + middleNext])
         return "".join(res)
 
